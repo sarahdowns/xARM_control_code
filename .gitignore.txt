@@ -1,0 +1,27 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+.env
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Virtual Environments (Never push these!)
+venv/
+.venv/
+env/
+ENV/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# IDEs and Editors
+.vscode/
+.idea/
+
+# Local configuration / Secrets
+.env
