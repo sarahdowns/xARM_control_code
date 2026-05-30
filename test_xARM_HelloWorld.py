@@ -4,6 +4,8 @@ from spatialmath import SE3
 from xarm.wrapper import XArmAPI
 import time
 
+import move_safe_Corke as base
+
 # Use your confirmed IP
 arm_ip = '192.168.1.225'
 arm = XArmAPI(arm_ip)
@@ -66,10 +68,10 @@ if code == 0:
     
     # Let's move Joint 1 (the base) by 10 degrees
     # We take the current angle of joint 1 and add 10
-    new_angle_j1 = angles[0]
-    new_angle_j2 = angles[1]
+    new_angle_j1 = angles[0]        # + is CCW 
+    new_angle_j2 = angles[1] 	    # + is CCW
     new_angle_j3 = angles[2] 
-    new_angle_j4 = angles[3]
+    new_angle_j4 = angles[3] 
     new_angle_j5 = angles[4] 
     new_angle_j6 = angles[5]
     new_angle_j7 = angles[6]
@@ -93,7 +95,8 @@ if code == 0:
     arm.set_servo_angle(servo_id=6, angle=new_angle_j6, speed=20, is_radian=False, wait=True)
     arm.set_servo_angle(servo_id=7, angle=new_angle_j7, speed=20, is_radian=False, wait=True)
 
-    go_custom_home(arm)
+    # go_custom_home(arm)
+    base.print_current_state(arm)
 
     print("Movement complete!")
 else:
