@@ -1,12 +1,12 @@
+# Aunthor: Sarah Downs
+# This script drives the arm linearly along the Y-axis. Constantly polls the F/T sensor. If the force limit is exceeded, 
+# the arm emergency-stops and prompts the user.
+
 import move_safe_Corke as base
 import time
 import math
 
 def execute_guarded_y_move(arm, target_y_mm, speed_mms=20, force_limit_N=15.0):
-    """
-    Drives the arm linearly along the Y-axis. Constantly polls the F/T sensor.
-    If the force limit is exceeded, the arm emergency-stops and prompts the user.
-    """
     # 1. Fetch current pose to lock X, Z, and Orientation
     code, pos = arm.get_position(is_radian=False)
     if code != 0:
@@ -24,7 +24,7 @@ def execute_guarded_y_move(arm, target_y_mm, speed_mms=20, force_limit_N=15.0):
     # 2. Tare the F/T sensor immediately before moving to get a clean baseline
     print("Taring F/T sensor...")
     #arm.ft_sensor_set_zero()
-    time.sleep(0.5)
+    time.sleep(0.3)
 
     # >>> NEW FIX: Clear the shockwave stop-state <<<
     arm.set_state(0) 
@@ -75,9 +75,7 @@ def execute_guarded_y_move(arm, target_y_mm, speed_mms=20, force_limit_N=15.0):
         time.sleep(0.05)
 
 
-# =========================================================
 # MAIN EXECUTION
-# =========================================================
 if __name__ == "__main__":
     
     with base.connect_xarm() as arm:
@@ -118,8 +116,8 @@ if __name__ == "__main__":
         time.sleep(7.0) 
         
         # 5. Execute the Guarded Move
-        #target_y = 400.0
-        target_y = 602.0
+        target_y = 400.0
+        #target_y = 602.0
         # target_y = current_pos[1] + 100.0    # To move relative to where it currently is
         execute_guarded_y_move(arm, target_y_mm=target_y, speed_mms=20, force_limit_N=15.0)
         
