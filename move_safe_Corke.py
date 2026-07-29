@@ -12,7 +12,7 @@ from contextlib import contextmanager
 ARM_IP = '192.168.1.225'
 
 # Safe boundaries in Millimeters [X_min, X_max, Y_min, Y_max, Z_min, Z_max]
-SAFE_BOUNDS = [100, 730, -700, 600, 100, 999]
+SAFE_BOUNDS = [100, 730, -700, 600, 90, 999]
 
 # Custom Safe Home in degrees [J1, J2, J3, J4, J5, J6, J7]
 SAFE_HOME_JOINTS = [90.0, 0.0, 0.0, 0.0, 0.0, -90.0, 0.0]	# With gripper

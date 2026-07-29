@@ -5,8 +5,7 @@
 import time
 from xarm.wrapper import XArmAPI
 
-# Replace with your actual robot IP
-ARM_IP = '192.168.1.225' 
+ARM_IP = '192.168.1.225'    # Robot IP
 
 def execute_recorded_probe_search():
     print(f"Connecting to {ARM_IP}...")

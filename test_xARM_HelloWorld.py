@@ -71,10 +71,10 @@ if code == 0:
     new_angle_j1 = angles[0]        # + is CCW 
     new_angle_j2 = angles[1] 	    # + is CCW
     new_angle_j3 = angles[2] 
-    new_angle_j4 = angles[3] 
+    new_angle_j4 = angles[3]    
     new_angle_j5 = angles[4] 
     new_angle_j6 = angles[5]
-    new_angle_j7 = angles[6]
+    new_angle_j7 = angles[6] - 15
     
     print(f"Moving joint 1 to: {new_angle_j1}")
     print(f"Moving joint 2 to: {new_angle_j2}")
