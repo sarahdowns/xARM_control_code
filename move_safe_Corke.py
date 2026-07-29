@@ -1,5 +1,6 @@
+# Author: Sarah Downs
 # File name: move_safe_Corke.py
-# This code acts as a "base" for all xARM code.
+# This code acts as a "base" to safely move xARM code. Builds a safe "box" that it will not move outside of. Sets non-nomial values. 
 
 import time
 import numpy as np
